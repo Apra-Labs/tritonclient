@@ -33,13 +33,14 @@ set(TRITON_MIN_CXX_STANDARD 17 CACHE STRING "The minimum C++ standard which feat
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+set(CMAKE_SHARED_LINKER_FLAGS "-Wl,-Bsymbolic")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC")
 #
 # Options
 #
 set(TRITON_VERSION "0.0.0" CACHE STRING "Version for the clients")
-option(TRITON_ENABLE_CC_HTTP "Build C++ HTTP client libraries" OFF)
-option(TRITON_ENABLE_CC_GRPC "Build C++ GRPC client libraries" OFF)
+option(TRITON_ENABLE_CC_HTTP "Build C++ HTTP client libraries" ON)
+option(TRITON_ENABLE_CC_GRPC "Build C++ GRPC client libraries" ON)
 option(TRITON_ENABLE_PYTHON_HTTP "Enable Python HTTP client libraries" OFF)
 option(TRITON_ENABLE_PYTHON_GRPC "Enable Python GRPC client libraries" OFF)
 option(TRITON_ENABLE_JAVA_HTTP "Enable JAVA HTTP client libraries" OFF)
