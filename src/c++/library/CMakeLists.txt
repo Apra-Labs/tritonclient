@@ -373,7 +373,7 @@ if(TRITON_ENABLE_CC_HTTP)
   )
 
   add_library(
-      http-client-library EXCLUDE_FROM_ALL OBJECT
+      http-client-library  OBJECT
       ${REQUEST_SRCS} ${REQUEST_HDRS}
   )
 
