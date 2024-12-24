@@ -46,7 +46,7 @@ option(TRITON_ENABLE_PYTHON_GRPC "Enable Python GRPC client libraries" OFF)
 option(TRITON_ENABLE_JAVA_HTTP "Enable JAVA HTTP client libraries" OFF)
 option(TRITON_ENABLE_EXAMPLES "Include examples in build" OFF)
 option(TRITON_ENABLE_TESTS "Include tests in build" OFF)
-option(TRITON_ENABLE_GPU "Enable GPU support in libraries" OFF)
+option(TRITON_ENABLE_GPU "Enable GPU support in libraries" ON)
 option(TRITON_ENABLE_ZLIB "Include ZLIB library in build" ON)
 
 # Package Perf Analyzer with the Python Client -- Intended to be used by PA repo

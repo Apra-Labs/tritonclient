@@ -37,11 +37,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #
 # Options
 #
-option(TRITON_ENABLE_CC_HTTP "Build C++ HTTP client libraries" OFF)
-option(TRITON_ENABLE_CC_GRPC "Build C++ GRPC client libraries" OFF)
+option(TRITON_ENABLE_CC_HTTP "Build C++ HTTP client libraries" ON)
+option(TRITON_ENABLE_CC_GRPC "Build C++ GRPC client libraries" ON)
 option(TRITON_ENABLE_EXAMPLES "Include examples in build" OFF)
 option(TRITON_ENABLE_TESTS "Include tests in build" OFF)
-option(TRITON_ENABLE_GPU "Enable GPU support in libraries" OFF)
+option(TRITON_ENABLE_GPU "Enable GPU support in libraries" ON)
 option(TRITON_USE_THIRD_PARTY "Use local version of third party libraries" ON)
 option(TRITON_KEEP_TYPEINFO "Keep typeinfo symbols by disabling ldscript" OFF)
 option(TRITON_ENABLE_ZLIB "Include ZLIB library in build" ON)
