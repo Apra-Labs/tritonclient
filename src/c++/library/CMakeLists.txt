@@ -422,12 +422,12 @@ if(TRITON_ENABLE_CC_HTTP)
   add_library(
       TritonClient::httpclient ALIAS httpclient
   )
-  message(${CMAKE_CURRENT_BINARY_DIR} "====================")
+
   if (NOT WIN32)
      set_target_properties(
        httpclient
        PROPERTIES
-         LINK_DEPENDS ${CMAKE_CURRENT_BINARY_DIR1}/libhttpclient.ldscript
+         LINK_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/libhttpclient.ldscript
          LINK_FLAGS "-Wl,--version-script=libhttpclient.ldscript"
      )
   endif() # NOT WIN32
