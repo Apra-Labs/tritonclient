@@ -29,6 +29,7 @@ cmake_minimum_required (VERSION 3.18)
 find_package(Threads REQUIRED)
 set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 set(CMAKE_CURRENT_BINARY_DIR1 "/home/developer/ApraLabs/tritonclient/build/cc-clients/library")
+message("========CMAKE_CURRENT_SOURCE_DIR========" ${CMAKE_CURRENT_SOURCE_DIR})
 message("========CMAKE_CURRENT_BINARY_DIR========" ${CMAKE_CURRENT_BINARY_DIR})
 #
 # common
@@ -424,12 +425,13 @@ if(TRITON_ENABLE_CC_HTTP)
   )
 
   if (NOT WIN32)
-     set_target_properties(
-       httpclient
-       PROPERTIES
-         LINK_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/libhttpclient.ldscript
-         LINK_FLAGS "-Wl,--version-script=libhttpclient.ldscript"
-     )
+    #  set_target_properties(
+    #    httpclient
+    #    PROPERTIES
+    #      LINK_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/libhttpclient.ldscript
+    #      LINK_FLAGS "-Wl,--version-script=libhttpclient.ldscript"
+    #  )
+    target_link_options(httpclient PRIVATE -Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/libhttpclient.ldscript)
   endif() # NOT WIN32
 
   target_link_libraries(  
