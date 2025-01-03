@@ -183,7 +183,7 @@ if(TRITON_ENABLE_CC_GRPC)
   #
   # libgrpcclient.so and libgrpcclient_static.a
   #
-  configure_file(libgrpcclient.ldscript libgrpcclient.ldscript COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libgrpcclient.ldscript ${CMAKE_CURRENT_BINARY_DIR}/libgrpcclient.ldscript COPYONLY)
 
   # libgrpcclient object build
   set(
@@ -360,7 +360,7 @@ if(TRITON_ENABLE_CC_HTTP)
   #
   # libhttpclient.so and libhttpclient_static.a
   #
-  configure_file(libhttpclient.ldscript libhttpclient.ldscript COPYONLY)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/libhttpclient.ldscript ${CMAKE_CURRENT_BINARY_DIR}/libhttpclient.ldscript COPYONLY)
 
   # libhttpclient object build
   set(
@@ -427,7 +427,7 @@ if(TRITON_ENABLE_CC_HTTP)
      set_target_properties(
        httpclient
        PROPERTIES
-         LINK_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/libhttpclient.ldscript
+         LINK_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/libhttpclient.ldscript
          LINK_FLAGS "-Wl,--version-script=libhttpclient.ldscript"
      )
   endif() # NOT WIN32
