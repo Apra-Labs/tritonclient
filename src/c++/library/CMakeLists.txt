@@ -243,12 +243,13 @@ if(TRITON_ENABLE_CC_GRPC)
   )
 
   if (NOT WIN32 AND NOT TRITON_KEEP_TYPEINFO)
-     set_target_properties(
-       grpcclient
-       PROPERTIES
-         LINK_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/libgrpcclient.ldscript
-         LINK_FLAGS "-Wl,--version-script=libgrpcclient.ldscript"
-     )
+    #  set_target_properties(
+    #    grpcclient
+    #    PROPERTIES
+    #      LINK_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/libgrpcclient.ldscript
+    #      LINK_FLAGS "-Wl,--version-script=libgrpcclient.ldscript"
+    #  )
+     target_link_options(grpcclient PRIVATE -Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/libgrpcclient.ldscript)
   endif() # NOT WIN32 AND NOT TRITON_KEEP_TYPEINFO
 
   target_link_libraries(
